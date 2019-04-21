@@ -1,9 +1,15 @@
 #!/bin/bash
 
-#下载ndk版本android-ndk-r19c
-wget https://dl.google.com/android/repository/android-ndk-r19c-linux-x86_64.zip
+if [ ! -d "android-ndk-r19c" ]
+then
+    if [ ! -f "android-ndk-r19c-linux-x86_64.zip" ]
+    then
+    	#下载ndk版本android-ndk-r19c
+    	wget https://dl.google.com/android/repository/android-ndk-r19c-linux-x86_64.zip
+    fi
 #解压缩
 unzip android-ndk-r19c-linux-x86_64.zip
+fi
 #NDK目录
 export NDK_HOME=`pwd`/android-ndk-r19c
 #生成交叉编译链工具
